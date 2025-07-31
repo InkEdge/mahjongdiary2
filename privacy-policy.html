@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="description" content="麻将日记隐私政策-了解我们如何保护您的数据安全">
+  <title>隐私政策 - 麻将日记</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    .lang-selector {
+      text-align: center;
+      padding: 16px;
+      background-color: #fff;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .lang-selector label {
+      margin-right: 10px;
+      font-weight: 500;
+    }
+    .lang-selector select {
+      font-size: 16px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      font-weight: 500;
+      transition: border-color 0.3s;
+    }
+    .lang-selector select:focus {
+      border-color: #007AFF;
+      outline: none;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 40px 20px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+    }
+    h1 {
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: #333;
+      line-height: 1.3;
+    }
+    h2 {
+      margin-top: 30px;
+      font-size: 20px;
+      color: #444;
+      line-height: 1.4;
+    }
+    p, li {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 16px;
+      white-space: pre-line;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    strong {
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    th, td {
+      border: 1px solid #dddddd;
+      padding: 12px;
+      text-align: left;
+      font-size: 15px;
+    }
+    th {
+      background-color: #f8f8f8;
+      font-weight: 600;
+    }
+    .lang-content {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .lang-content.active {
+      opacity: 1;
+      display: block;
+    }
+    @media (max-width: 480px) {
+      .container {
+        margin: 20px auto;
+        padding: 24px 16px;
+        border-radius: 0;
+      }
+      .lang-selector {
+        padding: 12px;
+      }
+      .lang-selector select {
+        width: 100%;
+        max-width: 280px;
+      }
+      h1 {
+        font-size: 22px;
+      }
+      h2 {
+        font-size: 19px;
+      }
+      p, li, th, td {
+        font-size: 15px;
+      }
+      table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+    }
+    @media print {
+      .lang-selector {
+        display: none;
+      }
+      body {
+        background-color: white;
+      }
+      .container {
+        box-shadow: none;
+        margin: 0;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-selector">
+    <label for="lang-select">🌐 选择语言 / Language:</label>
+    <select id="lang-select" onchange="switchLang(this.value)" aria-label="Select language">
+      <option value="zh">中文</option>
+      <option value="en">English</option>
+    </select>
+  </div>
+
+  <script>
+    // 语言切换函数
+    function switchLang(lang) {
+      document.querySelectorAll(".lang-content").forEach(el => {
+        el.classList.remove("active");
+        el.style.display = "none";
+      });
+      const target = document.getElementById(lang);
+      if (target) {
+        target.style.display = "block";
+        setTimeout(() => target.classList.add("active"), 10);
+      }
+      document.getElementById("lang-select").value = lang;
+      
+      // 更新HTML lang属性
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+    }
+
+    // 自动识别浏览器语言
+    window.onload = () => {
+      const langMap = {
+        'zh': 'zh',
+        'en': 'en'
+      };
+      const browserLang = navigator.language.slice(0, 2).toLowerCase();
+      const defaultLang = langMap[browserLang] || 'zh';
+      switchLang(defaultLang);
+    };
+  </script>
+
+  <div class="container">
+    <!-- 中文版本 -->
+    <div class="lang-content" id="zh" style="display: none" lang="zh-CN">
+      <h1>麻将日记隐私政策</h1>
+      <p>最后更新：2025年7月31日</p>
+      
+      <h2>1. 信息收集</h2>
+      <p>我们收集以下信息以提供更好的服务：</p>
+      <ul>
+        <li>个人设置信息：用户名、头像图片（您主动上传）</li>
+        <li>麻将对局记录：时间、地点、金额、对手信息、游戏模式等</li>
+        <li>应用使用数据：功能使用频率、偏好设置、使用统计等</li>
+        <li>设备信息：设备型号、操作系统版本、应用版本等</li>
+        <li>相册访问：用于保存分享图片到您的相册</li>
+        <li>订阅信息：通过App Store处理订阅购买和续费</li>
+      </ul>
+      <p>所有数据主要存储在您的设备本地，我们不会未经您同意上传到服务器。</p>
+      
+      <h2>2. 数据使用目的</h2>
+      <p>我们使用收集的信息用于：</p>
+      <ul>
+        <li>提供核心功能：对局记录、统计分析、趋势预测</li>
+        <li>个性化体验：根据您的使用习惯提供定制化建议</li>
+        <li>功能改进：分析使用数据以优化应用性能和用户体验</li>
+        <li>客户支持：响应您的反馈和问题咨询</li>
+        <li>订阅服务：处理订阅购买、续费和恢复购买</li>
+        <li>分享功能：生成和保存分享图片到您的相册</li>
+        <li>安全保护：防止欺诈和滥用行为</li>
+      </ul>
+      
+      <h2>3. 数据存储和安全</h2>
+      <p>数据存储方式：</p>
+      <ul>
+        <li>本地存储：大部分数据存储在您的设备本地</li>
+        <li>加密保护：使用iOS系统提供的加密机制</li>
+        <li>iCloud备份：如果您开启iCloud，数据会包含在备份中</li>
+        <li>安全传输：网络传输时使用HTTPS加密</li>
+        <li>访问控制：应用内数据访问需要用户授权</li>
+        <li>定期更新：我们定期更新安全措施以保护您的数据</li>
+      </ul>
+      
+      <h2>4. 数据共享和第三方服务</h2>
+      <p>数据共享政策：</p>
+      <ul>
+        <li>我们不会向第三方出售、出租或交易您的个人信息</li>
+        <li>仅在以下情况下可能共享数据：
+          <ul>
+            <li>您明确同意</li>
+            <li>法律要求或政府机构要求</li>
+            <li>保护我们的合法权益</li>
+            <li>与Apple Inc.共享订阅相关信息（通过App Store）</li>
+          </ul>
+        </li>
+      </ul>
+      <p>第三方服务：</p>
+      <ul>
+        <li>App Store：处理订阅购买和支付</li>
+        <li>系统服务：相册访问、通知等iOS系统功能</li>
+      </ul>
+      
+      <h2>5. 用户权利和控制</h2>
+      <p>您拥有以下权利：</p>
+      <ul>
+        <li>访问权：查看您存储的所有个人信息</li>
+        <li>修改权：随时修改用户名、头像等个人信息</li>
+        <li>删除权：删除特定记录或全部数据</li>
+        <li>导出权：导出您的对局记录数据</li>
+        <li>撤销权：撤销隐私授权，停止数据收集</li>
+        <li>控制权：控制相册访问、通知等权限</li>
+        <li>订阅管理：通过App Store管理订阅状态</li>
+      </ul>
+      
+      <h2>6. 订阅和支付</h2>
+      <p>订阅服务说明：</p>
+      <ul>
+        <li>订阅处理：所有订阅通过App Store处理，我们无法访问您的支付信息</li>
+        <li>订阅数据：我们仅接收订阅状态信息，用于功能解锁</li>
+        <li>自动续费：订阅会自动续费，您可以在App Store设置中管理</li>
+        <li>恢复购买：支持通过App Store恢复之前的购买</li>
+        <li>退款政策：退款需通过App Store处理，遵循Apple的退款政策</li>
+        <li>价格变更：价格变更会提前通知，您可以选择继续或取消</li>
+      </ul>
+      
+      <h2>7. 相册和图片功能</h2>
+      <p>图片相关功能：</p>
+      <ul>
+        <li>头像上传：您可以选择从相册上传头像，我们仅存储您选择的图片</li>
+        <li>分享图片：生成的分享图片会保存到您的相册，您可以随时删除</li>
+        <li>权限管理：相册访问权限由您控制，可以随时在设置中修改</li>
+        <li>数据安全：上传的头像仅用于应用内显示，不会用于其他目的</li>
+        <li>本地处理：图片处理均在您的设备本地完成</li>
+      </ul>
+      
+      <h2>8. 儿童隐私保护</h2>
+      <p>儿童隐私：</p>
+      <ul>
+        <li>年龄限制：本应用不专门面向13岁以下儿童</li>
+        <li>家长控制：建议家长监督儿童使用，设置适当的设备限制</li>
+        <li>数据保护：如果发现儿童提供了个人信息，我们会立即删除</li>
+        <li>家长权利：家长可以联系我们要求删除儿童相关数据</li>
+        <li>教育责任：我们致力于保护儿童隐私，遵循相关法律法规</li>
+      </ul>
+      
+      <h2>9. 数据保留和删除</h2>
+      <p>数据保留政策：</p>
+      <ul>
+        <li>本地数据：数据保留在您的设备上，直到您主动删除</li>
+        <li>应用删除：删除应用时，本地数据会被清除</li>
+        <li>账户注销：目前不提供账户注销功能，因为数据主要存储在本地</li>
+        <li>备份数据：iCloud备份中的数据遵循Apple的保留政策</li>
+        <li>订阅数据：订阅相关信息保留至订阅结束后的合理期间</li>
+      </ul>
+      
+      <h2>10. 政策更新和通知</h2>
+      <p>政策更新：</p>
+      <ul>
+        <li>更新通知：重大变更时，我们会在应用内通知您</li>
+        <li>生效时间：更新后的政策在发布后立即生效</li>
+        <li>变更说明：我们会提供详细的变更说明</li>
+        <li>继续使用：继续使用应用表示您同意更新后的政策</li>
+        <li>历史版本：您可以在应用内查看当前版本的政策</li>
+      </ul>
+      
+      <h2>11. 国际数据传输</h2>
+      <p>数据跨境：</p>
+      <ul>
+        <li>主要存储：您的数据主要存储在您所在地区的设备上</li>
+        <li>服务提供：我们的服务可能涉及国际数据传输</li>
+        <li>合规要求：我们遵循适用的数据保护法律法规</li>
+        <li>安全保障：跨境传输时采用适当的安全措施</li>
+        <li>用户同意：使用我们的服务表示您同意可能的数据跨境传输</li>
+      </ul>
+      
+      <h2>12. 联系我们</h2>
+      <p>如果您对本隐私政策有任何疑问、建议或投诉，请通过以下方式联系我们：</p>
+      <ul>
+        <li>邮箱：chenyisy@gmail.com</li>
+        <li>应用内反馈：通过应用内的反馈功能</li>
+        <li>响应时间：我们会在3个工作日内回复您的咨询</li>
+        <li>投诉处理：我们会认真处理您的投诉和建议</li>
+        <li>持续改进：您的反馈帮助我们持续改进隐私保护措施</li>
+      </ul>
+      
+      <h2>重要声明</h2>
+      <p>使用本应用即表示您同意本隐私政策的所有条款。我们致力于保护您的隐私，确保您的个人信息安全。如果您不同意本政策的任何条款，请停止使用本应用。</p>
+    </div>
+
+    <!-- 英文版本 -->
+    <div class="lang-content" id="en" style="display:none" lang="en">
+      <h1>Mahjong Diary Privacy Policy</h1>
+      <p>Last Updated: July 31, 2025</p>
+      
+      <h2>1. Information Collection</h2>
+      <p>We collect the following information to provide better services:</p>
+      <ul>
+        <li>Personal settings: Username, profile picture (uploaded by you)</li>
+        <li>Game records: Time, location, scores, opponents, game modes, etc.</li>
+        <li>Usage data: Feature usage frequency, preferences, statistics</li>
+        <li>Device information: Model, OS version, app version</li>
+        <li>Photo library access: For saving shared images to your album</li>
+        <li>Subscription info: Processed through App Store</li>
+      </ul>
+      <p>All data is primarily stored locally on your device. We won't upload it to servers without your consent.</p>
+      
+      <h2>2. Purpose of Data Use</h2>
+      <p>We use collected information for:</p>
+      <ul>
+        <li>Core features: Game records, statistics, trend analysis</li>
+        <li>Personalization: Customized suggestions based on your usage</li>
+        <li>Improvements: Optimizing app performance and experience</li>
+        <li>Support: Responding to your feedback and inquiries</li>
+        <li>Subscriptions: Processing purchases and renewals</li>
+        <li>Sharing: Generating and saving shareable images</li>
+        <li>Security: Preventing fraud and abuse</li>
+      </ul>
+      
+      <h2>3. Data Storage & Security</h2>
+      <p>Storage methods:</p>
+      <ul>
+        <li>Local storage: Most data stays on your device</li>
+        <li>Encryption: Using iOS encryption mechanisms</li>
+        <li>iCloud backup: Included if you enable iCloud</li>
+        <li>Secure transfer: HTTPS encryption for network transmission</li>
+        <li>Access control: Requires user authorization</li>
+        <li>Regular updates: We continually improve security measures</li>
+      </ul>
+      
+      <h2>4. Data Sharing & Third Parties</h2>
+      <p>Sharing policy:</p>
+      <ul>
+        <li>We don't sell, rent or trade your personal information</li>
+        <li>Data may be shared only when:
+          <ul>
+            <li>You explicitly consent</li>
+            <li>Required by law or government request</li>
+            <li>To protect our legal rights</li>
+            <li>With Apple Inc. for subscription processing</li>
+          </ul>
+        </li>
+      </ul>
+      <p>Third-party services:</p>
+      <ul>
+        <li>App Store: Handles subscription payments</li>
+        <li>System services: Photo library, notifications, etc.</li>
+      </ul>
+      
+      <h2>5. Your Rights & Control</h2>
+      <p>You have the right to:</p>
+      <ul>
+        <li>Access: View all your stored personal information</li>
+        <li>Modify: Change username, profile picture anytime</li>
+        <li>Delete: Remove specific records or all data</li>
+        <li>Export: Download your game records</li>
+        <li>Revoke: Withdraw permissions and stop data collection</li>
+        <li>Control: Manage photo access, notifications, etc.</li>
+        <li>Subscription: Manage via App Store settings</li>
+      </ul>
+      
+      <h2>6. Subscriptions & Payments</h2>
+      <p>Subscription details:</p>
+      <ul>
+        <li>Processed through App Store - we don't access payment info</li>
+        <li>We only receive subscription status for feature unlocking</li>
+        <li>Auto-renewal: Manage in App Store settings</li>
+        <li>Restore purchases: Supported via App Store</li>
+        <li>Refunds: Handled by Apple following their policies</li>
+        <li>Price changes: You'll be notified in advance</li>
+      </ul>
+      
+      <h2>7. Photos & Images</h2>
+      <p>Image-related features:</p>
+      <ul>
+        <li>Profile pictures: Selected from your library, stored only for display</li>
+        <li>Shared images: Saved to your album, deletable anytime</li>
+        <li>Permission control: Manage in device settings</li>
+        <li>Security: Uploaded images aren't used for other purposes</li>
+        <li>Local processing: All image handling occurs on your device</li>
+      </ul>
+      
+      <h2>8. Children's Privacy</h2>
+      <p>For children under 13:</p>
+      <ul>
+        <li>Not specifically designed for children under 13</li>
+        <li>Parental supervision recommended</li>
+        <li>We'll delete any discovered child data immediately</li>
+        <li>Parents may contact us to request data removal</li>
+        <li>We comply with relevant laws protecting children</li>
+      </ul>
+      
+      <h2>9. Data Retention & Deletion</h2>
+      <p>Retention policy:</p>
+      <ul>
+        <li>Local data: Remains until you delete it</li>
+        <li>App deletion: Removes all local data</li>
+        <li>Account deletion: Not applicable as data is local</li>
+        <li>Backups: Follow Apple's iCloud retention policies</li>
+        <li>Subscription data: Kept for reasonable period after expiration</li>
+      </ul>
+      
+      <h2>10. Policy Updates</h2>
+      <p>About updates:</p>
+      <ul>
+        <li>Notifications: We'll alert you to major changes in-app</li>
+        <li>Effective immediately upon posting</li>
+        <li>Change logs: Detailed explanations provided</li>
+        <li>Continued use implies acceptance</li>
+        <li>Current version always available in-app</li>
+      </ul>
+      
+      <h2>11. International Data Transfer</h2>
+      <p>Cross-border data:</p>
+      <ul>
+        <li>Primary storage: On your local device</li>
+        <li>Service may involve international transfer</li>
+        <li>We comply with applicable data protection laws</li>
+        <li>Appropriate security measures implemented</li>
+        <li>Using our service implies consent to possible transfers</li>
+      </ul>
+      
+      <h2>12. Contact Us</h2>
+      <p>For questions, suggestions or complaints:</p>
+      <ul>
+        <li>Email: chenyisy@gmail.com</li>
+        <li>In-app feedback</li>
+        <li>Response time: Within 3 business days</li>
+        <li>Complaints: Taken seriously and addressed</li>
+        <li>Your feedback helps improve our privacy protections</li>
+      </ul>
+      
+      <h2>Important Notice</h2>
+      <p>Using this app means you accept all terms of this Privacy Policy. We're committed to protecting your privacy and personal information. If you disagree with any terms, please discontinue use.</p>
+    </div>
+  </div>
+</body>
+</html>
